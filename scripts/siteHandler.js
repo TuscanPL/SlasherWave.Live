@@ -1,0 +1,22 @@
+$(document).ready(()=>{
+    $("#topBar").hide();
+    $("#botBar").hide();
+    $("#tuneInButtonContainer").hide();
+    $(window).ready(function(){
+        getWindowSize();
+        repositionElements();
+        $("#tuneInButton").addClass("transitionButton");
+        $("#mainLogo").addClass("transitionButton");
+        $("#tuneInButton").click(()=>{
+            $("#tuneInButtonContainer").fadeOut(1000);
+            setTimeout(()=>{
+                $("#topBar").fadeIn(1000);
+                $("#botBar").fadeIn(1000);
+            }, 1000);
+        });
+    });
+    $(window).resize(function(){
+        getWindowSize();
+        repositionElements();
+    });
+});
